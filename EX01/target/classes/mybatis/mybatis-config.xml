@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	<configuration>
+	<!-- mybatis 규칙정의-->
+	<!-- <settings>
+	<setting name="cashEnabled" value="false"/>
+	</settings> -->
+	
+	<typeAliases>
+		<package name="kr.pe.bsk.domain"/> <!-- 이하 경로만 표기하면 됨 -->
+	</typeAliases>
+	
+	</configuration>

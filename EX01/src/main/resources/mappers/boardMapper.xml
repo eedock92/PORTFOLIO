@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+
+	<insert id="create">
+	insert into board (title, content, writer)
+	values(#{title},#{content}, #{writer})
+	</insert>
+	
+	<select id="read" resultType="BoardVO">
+	select
+		bno, title, content, writer, regdate, viewcnt
+	from
+		board
+	where bno = #{bno}
+	</select>
+	
+	<update id="update" parameterType="hashmap">
+	update board set title =#{title}, content =#{content}, writer =#{writer}
+	where bno = #{bno}
+	</update>
+	
+	<delete id="delete" parameterType="hashmap">
+	delete from board where bno = #{bno}
+	</delete> 
+	
+	<select id="listAll" resultType="BoardVO">
+	
+	select
+		bno, title, content, writer, regdate, viewcnt
+	from
+		board
+	where bno &gt; 0
+	order by bno desc, regdate desc		
+	
+	</select>
+	
+	<select id="listPage" resultType="BoardVO">
+		SELECT BNO
+			 , TITLE
+			 , CONTENT
+			 , WRITER
+			 , REGDATE
+			 , VIEWCNT
+		  FROM BOARD
+		WHERE BNO &gt; 0
+	 ORDER BY BNO DESC
+	 	LIMIT #{page}, 10		 
+	</select>
+	
+	<select id = "listCriteria" resultType="BoardVO">
+	SELECT BNO
+			 , TITLE
+			 , CONTENT
+			 , WRITER
+			 , REGDATE
+			 , VIEWCNT
+		  FROM BOARD
+		WHERE BNO &gt; 0
+	 ORDER BY BNO DESC
+	 	LIMIT #{pageStart}, #{perPageNum}	
+	</select>
+</mapper>

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+.wrap {
+ 	margin : 0 auto; /* 가운데 정렬 */
+	display: flex; /* flex박스 사용 */
+	width : 100%;
+	flex-flow: row wrap; /* 가로로 박스 세로는 no wrap */
+}
+
+
+
+header{
+	width : 100%;
+}
+
+.header{
+	margin : 0 auto;
+	width : 100%;
+	height: 1200px;
+	display : flex;
+	flex-flow: row wrap;
+}
+
+.header .guide {
+	order : 1;
+	width: 100%;
+	height: 800px;
+	text-align: right;
+	background-color:  #400000;
+}
+.header .cate {
+	order : 2;
+	width: 50%;
+	height: 400px;
+	background-color:  #c0c0c0;
+}
+.header .search {
+	order : 3;
+	width: 50%;
+	height: 400px;
+	background-color:  #a7b5cb;
+}
+
+
+
+#con1 {
+	order : 1;
+	width: 100%;
+	height: 1000px;
+	text-align: right;
+	background-color:  #ffffff;
+}
+#con2 {
+	order : 2;
+	width: 100%;
+	height: 500px;
+	text-align: right;
+	color: #f8f8f8;
+	background-color:  #262626;
+}

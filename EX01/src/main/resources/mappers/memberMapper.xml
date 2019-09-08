@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+	<insert id="create">
+	insert into member (ID, PASS, EMAIL) 
+	values(#{ID}, #{PASS}, #{EMAIL})
+	</insert>
+	
+	
+	 <select id="readMem" resultType="MemberVO">
+	select
+		ID
+	from
+		member
+	where ID = #{ID, jdbcType=VARCHAR}
+	</select> 
+	
+	<select id="idCheck" resultType="String">
+        select ID from MEMBER
+        where ID = #{ID, jdbcType=VARCHAR}
+    </select>
+	
+	
+	<select id="listAllMem" resultType="MemberVO">
+	
+	select
+		ID
+	from
+		member
+	
+	</select>
+	
+	
+	<select id="loginCheck" resultType="String">
+        select ID from MEMBER
+        where ID = #{ID, jdbcType=VARCHAR} AND PASS = #{PASS, jdbcType=VARCHAR}
+    </select>
+	
+	 <select id="viewMember" resultType="MemberVO">
+        select 
+            ID,
+            EMAIL  
+        from MEMBER
+        where ID = #{ID, jdbcType=VARCHAR} and PASS = #{PASS, jdbcType=VARCHAR}
+    </select>
+	
+
+</mapper>
